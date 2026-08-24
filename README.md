@@ -107,6 +107,7 @@ Since the MCU's ADC can only safely read 0 to 3.3V, R8/R9 divide SYS_VIN down to
 <p align="center">
 <img width="1076" height="452" alt="image" src="https://github.com/user-attachments/assets/f7737ae2-4b39-4939-b638-ff7221152a87" />
 </p>
+
 ### IMU
 
 The gyro went through a few iterations before landing here. BMI270 was the original pick for its low cost, but Betaflight's own manufacturer guidelines explicitly discourage it for new designs, as its gyro is uncalibrated, which can cause angle drift. ICM-42688-P (Betaflight's current top recommendation) was considered but is significantly more expensive at genuine-part pricing, with cheaper "compatible" clone parts carrying real reliability risk. LSM6DSO was also considered as a near-free alternative, but multiple sources flag it for a higher noise floor and weaker track record specifically in flight-controller applications. ICM-20602 was chosen as the middle ground: it falls under Betaflight's "ICM2060X" table row (8kHz gyro sampling, 4kHz PID loop on F405 with bidirectional DShot), has a genuine multi-year track record in FPV flight controllers, and adds only a modest cost premium over BMI270.
@@ -135,6 +136,7 @@ FLASH_CS (R19, 10k pull-up to +3.3V) prevents the CS line from floating during M
 <p align="center">
 <img width="702" height="449" alt="image" src="https://github.com/user-attachments/assets/925c1778-c1a0-4f29-9704-a973d6b19ccd" />
 </p>
+
 ### ESC
 
 Carries battery power and motor signals down to the 4-in-1 ESC sitting below the FC in the stack. Pin 1 (+BATT) taps SYS_VIN, which is pre-buck and close to raw battery voltage, since the ESC needs full battery voltage to drive the motors rather than the board's regulated 5V rail. Pins 3 through 6 carry the DShot motor signals (M1–M4, mapped to PB0/PB1/PA3/PA2), and pin 7 carries ESC_CURRENT, the ESC's current-sense output, filtered through C29 (10nF) before reaching PA1 on the MCU.
