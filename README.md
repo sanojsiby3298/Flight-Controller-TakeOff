@@ -5,9 +5,9 @@
   <img src="https://github.com/user-attachments/assets/02164593-6775-4292-92d6-750c4424bcbd" width="400" height="400"/>
 </p>
 
-An STM32F405-based Betaflight flight controller, designed in KiCad specifically for Takeoff. It's built to carry only the circuitry it actually needs for this platform, not the full feature set you'd find on a commercial FC trying to serve every possible use case.
+An STM32F405-based Betaflight flight controller, designed in KiCad specifically for Takeoff. Designed a 4-layer, 38×38mm STM32F405RGT6-based flight controller PCB from schematic to fabrication-ready Gerbers for a 20 to 30 unit drone build program at Toronto Metropolitan University.
 
-Status: routing complete, in pre-order verification.
+Current Progress: Ordered an initial test set, waiting for delivery from JLCPCB (08/24/2026)
 
 This README follows the same block structure as the schematic sheet.
 
