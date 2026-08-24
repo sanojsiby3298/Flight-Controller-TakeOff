@@ -76,6 +76,7 @@ Status LEDs are the fastest way to check if your flight controller is running co
 <p align="center">
 <img width="1147" height="621" alt="image" src="https://github.com/user-attachments/assets/42fd7963-410b-4298-aac0-c1052695987a" />
 </p>
+
 ### Reverse Voltage and Overvoltage Protection
 
 To stop current from flowing when voltage is reversed, a P-channel MOSFET (Q1) is used with the drain connected to battery, source to the board, and a gate connected to ground through R1 (100k) and to SYS_VIN through R20 (100k). It would float randomly without the ground-side resistor, as it gives it a defined reference to pull against. If the polarity is correct, the body diode conducts first by pulling the source to the battery, and as the gate-to-source voltage goes negative, the MOSFET turns on. In reverse polarity, the body diode is facing the wrong way, so the source doesn't get pulled up, and with no way to develop a negative gate-to-source voltage, there's no way to turn the MOSFET on.
